@@ -9,8 +9,8 @@ var BookInstanceSchema = new Schema({
   status: {
     type: String,
     required: true,
-    enum: ["Available", "Maintenance", "Loaned", "Reserved"],
-    default: "Maintenance"
+    enum: ["Available", "Maintenance", "Loaned", "Reserved"]
+    // default: "Maintenance"
   },
   due_back: { type: Date, default: Date.now }
 });
@@ -22,6 +22,10 @@ BookInstanceSchema.virtual("url").get(function() {
 
 BookInstanceSchema.virtual("due_back_formatted").get(function() {
   return moment(this.due_back).format("MMMM Do, YYYY");
+});
+
+BookInstanceSchema.virtual("due_back_formatted2").get(function() {
+  return moment(this.due_back).format("YYYY-MM-DD");
 });
 
 //Export model

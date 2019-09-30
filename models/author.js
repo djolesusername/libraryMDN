@@ -33,9 +33,21 @@ AuthorSchema.virtual("date_of_birth_formated").get(function() {
     : "";
 });
 
+AuthorSchema.virtual("date_of_birth_formated2").get(function() {
+  return this.date_of_birth
+    ? moment(this.date_of_birth).format("MMMM Do, YYYY")
+    : "";
+});
+
 AuthorSchema.virtual("date_of_death_formated").get(function() {
   return this.date_of_death
     ? moment(this.date_of_death).format("YYYY-MM-DD")
+    : "";
+});
+
+AuthorSchema.virtual("date_of_death_formated2").get(function() {
+  return this.date_of_death
+    ? moment(this.date_of_death).format("MMMM Do, YYYY")
     : "";
 });
 
