@@ -3,6 +3,7 @@ var Book = require("../models/book");
 var Author = require("../models/author");
 const { body, validationResult } = require("express-validator");
 const { sanitizeBody } = require("express-validator/filter");
+var debug = require("debug")("author");
 
 // Display list of all Authors.
 exports.author_list = function(req, res, next) {
@@ -10,6 +11,7 @@ exports.author_list = function(req, res, next) {
     .sort([["family_name", "ascending"]])
     .exec(function(err, list_authors) {
       if (err) {
+        debug("list error:" + err);
         return next(err);
       }
       //Successful, so render
@@ -33,6 +35,7 @@ exports.author_detail = function(req, res, next) {
     },
     function(err, results) {
       if (err) {
+        debug("detail error:" + err);
         return next(err);
       } // Error in API usage.
       if (results.author == null) {
@@ -109,6 +112,7 @@ exports.author_create_post = [
       });
       author.save(function(err) {
         if (err) {
+          debug("create error:" + err);
           return next(err);
         }
         // Successful - redirect to new author record.
@@ -131,6 +135,7 @@ exports.author_delete_get = function(req, res, next) {
     },
     function(err, results) {
       if (err) {
+        debug("delete error:" + err);
         return next(err);
       }
       if (results.author == null) {
@@ -175,6 +180,7 @@ exports.author_delete_post = function(req, res, next) {
         // Author has no books. Delete object and redirect to the list of authors.
         Author.findByIdAndRemove(req.body.authorid, function deleteAuthor(err) {
           if (err) {
+            debug("delete error:" + err);
             return next(err);
           }
           // Success - go to author list
@@ -198,6 +204,7 @@ exports.author_update_get = function(req, res, next) {
     },
     function(err, results) {
       if (err) {
+        debug("update error:" + err);
         return next(err);
       } // Error in API usage.
       if (results.author == null) {
@@ -273,6 +280,7 @@ exports.author_update_post = [
         theauthor
       ) {
         if (err) {
+          debug("update error:" + err);
           return next(err);
         }
         // Successful - redirect to book detail page.
