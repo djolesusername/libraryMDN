@@ -15,7 +15,7 @@ Library supports creating, reading, updating, deleting of authors, books, copies
 
 Appropriate schemes specify mandatory and optional fields. Limitations apply: in order to delete a book, it shouldn't have any copies. In order to delete author no books should be assigned to him.
 
-### Feel free to [https://cool-library.herokuapp.com/catalog] your recommendation :)
+### Feel free to [add](https://cool-library.herokuapp.com/catalog) your recommendation :)
 
 
 TBD: authentication
