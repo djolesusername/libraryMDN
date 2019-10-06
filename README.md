@@ -11,17 +11,14 @@ Base code for the application has been provided by MDN. Each section contained f
 View template used: **pug**
 
 ###  Application 
-Library supports creating, reading, updating, deleting of authors, books, bookinstances and genres. 
+Library supports creating, reading, updating, deleting of authors, books, copies and genres.
 
-Appropriate schemas specify mandatory and optional fields. 
-Limitatioons apply: in order to delete a book, it shouldn't have any copies. 
-In order to delte author no books should be assigned to him.
+Appropriate schemes specify mandatory and optional fields. Limitations apply: in order to delete a book, it shouldn't have any copies. In order to delete author no books should be assigned to him.
 
-### Feel free to add your reccomendation :)
+### Feel free to [https://cool-library.herokuapp.com/catalog] your recommendation :)
 
 
 TBD: authentication
-
 
 
 
